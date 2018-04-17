@@ -61,3 +61,14 @@ Feature: Displaying Scenarios
   Scenario: Step ending with a match with double-quotes
     When searching the log for the exact match of the message "Entering application."
     When the step definition has HTML escaped characters like: "<>&"
+
+  Scenario: Steps defined with a common block
+    This scenario executes several steps that were all created
+    with a common proc. This is useful when writing a process 
+    that is then aliased for multiple languages. The english 
+    keyword has been used as a constant here as that is a
+    different feature
+
+    When say something
+    When di algo
+    When dis quelquechose

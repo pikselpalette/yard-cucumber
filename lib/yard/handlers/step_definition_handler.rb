@@ -49,12 +49,12 @@ class YARD::Handlers::Ruby::StepDefinitionHandler < YARD::Handlers::Ruby::Base
       o.source = statement.source
       o.comments = statement.comments
       o.keyword = statement.method_name.source
-      o.value = statement.parameters.source
-      o.pending = pending_keyword_used?(statement.block)
+      o.value = statement.parameters[0].source
+      o.pending = pending_keyword_used?(statement.block) unless statement.block.nil?
     end
 
     obj = register instance
-    parse_block(statement[2],:owner => obj)
+    parse_block(statement[2],:owner => obj) unless statement.block.nil?
 
   end
 

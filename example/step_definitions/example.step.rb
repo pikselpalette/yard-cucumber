@@ -120,3 +120,25 @@ end
 def a_helper_method
   puts "performs some operation"
 end
+
+#
+# This is a block used in multiple steps 
+#
+saySomething = Proc.new do |something|
+   puts something
+end
+
+#
+# Engligh step say something
+#
+When /^say ([^$]*)$/, saySomething
+
+#
+# Spanish step fo say something
+#
+When /^di ([^$]*)$/, saySomething
+
+#
+# French step fo say something
+#
+When /^dis ([^$]*)$/, saySomething
